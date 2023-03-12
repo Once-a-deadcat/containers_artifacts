@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: api-dev
+  name: api-developer-rolebinding
+subjects:
+- kind: User
+  name: kugi
+  apiGroup: rbac.authorization.k8s.io
+- kind: Group
+  name: 93fdf6a0-1321-46b8-8581-a0eb95100792
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: api-developer-role

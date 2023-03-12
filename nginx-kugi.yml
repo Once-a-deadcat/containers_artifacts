@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kugi-nginx
+  labels:
+    app: kugi-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kugi-nginx
+  template:
+    metadata:
+      labels:
+        app: kugi-nginx
+    spec:
+      containers:
+      - name: kugi-nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+---
